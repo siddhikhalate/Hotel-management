@@ -58,12 +58,12 @@
         </dependency>
 
         <!-- ✅ Correct Lombok Dependency -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>Lombok</artifactId>
-            <version>1.18.32</version>
-            <scope>provided</scope>
-        </dependency>
+       <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.32</version>
+    <optional>true</optional>
+</dependency>
 
         <!-- Jackson -->
         <dependency>
