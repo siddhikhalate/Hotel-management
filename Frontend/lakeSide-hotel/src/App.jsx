@@ -15,7 +15,7 @@ import RoomListing from "./components/room/RoomListing";
 import Checkout from "./components/bookings/Checkout";
 import Admin from "./components/admin/Admin"
 import BookingSuccess from "./components/bookings/BookingSuccess";
-import Bookings from "./components/Bookings/Bookings";
+import Bookings from "./components/bookings/Bookings";
 import FindBooking from "./components/Bookings/FindBooking"
 import Login from "./components/auth/Login";
 import Registration from "./components/auth/Registration";
