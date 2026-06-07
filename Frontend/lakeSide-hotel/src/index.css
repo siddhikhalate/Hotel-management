@@ -1,0 +1,258 @@
+/* ===== GLOBAL ===== */
+body {
+  min-height: 100vh;
+  background: #f5f6fa;
+  font-family: 'Inter', sans-serif;
+  color: #2d2d2d;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #9c2d63;
+  --secondary: #d36fa4;
+  --gold: #d4a017;
+  --light: #ffffff;
+  --dark: #1f1f1f;
+  --shadow: rgba(0,0,0,0.08);
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+  padding: 1rem 3rem;
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 3px 25px rgba(0,0,0,.05);
+  transition: .4s;
+}
+
+.navbar-brand{
+    font-size:1.7rem;
+    font-weight:bold;
+    color:var(--primary)!important;
+}
+
+.nav-link{
+    color:#444!important;
+    font-weight:500;
+    margin:0 10px;
+    position:relative;
+}
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:3px;
+    background:linear-gradient(
+    to right,
+    var(--primary),
+    var(--secondary)
+    );
+    bottom:-5px;
+    left:0;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+.nav-link:hover{
+    color:var(--primary)!important;
+}
+
+/* ===== HERO SECTION ===== */
+
+.header-banner{
+    height:90vh;
+    background:
+    linear-gradient(
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.45)),
+    url("./assets/images/Hotelview.jpg");
+
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.overlay-content{
+    text-align:center;
+    color:white;
+    z-index:2;
+}
+
+.overlay-content h1{
+    font-size:4rem;
+    font-weight:800;
+    margin-bottom:20px;
+    animation:fadeUp 1s ease;
+}
+
+.overlay-content p{
+    font-size:1.2rem;
+    max-width:700px;
+    margin:auto;
+    opacity:.9;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn-hotel{
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    border:none;
+    color:white;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+    margin-top:20px;
+
+    transition:.4s;
+    box-shadow:
+    0 8px 25px
+    rgba(156,45,99,.3);
+}
+
+.btn-hotel:hover{
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 15px 30px
+    rgba(156,45,99,.4);
+
+}
+
+/* ===== CARDS ===== */
+
+.card{
+    border:none;
+    border-radius:25px;
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,.85);
+
+    backdrop-filter:blur(20px);
+
+    transition:.5s;
+
+    box-shadow:
+    0 10px 30px
+    var(--shadow);
+}
+
+.card img{
+    transition:.7s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card:hover{
+    transform:
+    translateY(-12px);
+
+    box-shadow:
+    0 20px 40px
+    rgba(0,0,0,.12);
+}
+
+/* ===== PRICE ===== */
+
+.room-price{
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--gold);
+}
+
+/* ===== PARALLAX ===== */
+
+.parallax{
+    height:70vh;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.5)
+    ),
+
+    url("./assets/images/parrall.jpg");
+
+    background-attachment:fixed;
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    text-align:center;
+}
+
+.parallax h1{
+    font-size:4rem;
+    font-weight:bold;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    margin-top:100px;
+    background:#111;
+    color:#ddd;
+    padding:30px;
+    text-align:center;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:
+        translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        translateY(0);
+    }
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+.header-banner{
+height:70vh;
+}
+
+.overlay-content h1{
+font-size:2.5rem;
+}
+
+.parallax h1{
+font-size:2rem;
+}
+
+.navbar{
+padding:1rem;
+}
+
+}
