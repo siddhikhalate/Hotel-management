@@ -18,22 +18,21 @@ import java.util.List;
 @Configuration
 public class CorsConfig {
 
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = 
-            new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of(
-            "http://localhost:5173",
-            "https://hotel-management-eight-livid.vercel.app",
-            "https://hotel-management-2-seven.vercel.app"
-        ));
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowedMethods(List.of(
-            "GET","POST","PUT","DELETE","OPTIONS"
-        ));
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
-}
+	 @Bean
+	    public CorsFilter corsFilter() {
+	        UrlBasedCorsConfigurationSource source = 
+	            new UrlBasedCorsConfigurationSource();
+	        CorsConfiguration config = new CorsConfiguration();
+	        config.setAllowCredentials(true);
+	        config.setAllowedOriginPatterns(List.of(
+	            "http://localhost:5173",
+	            "https://*.vercel.app"
+	        ));
+	        config.setAllowedHeaders(List.of("*"));
+	        config.setAllowedMethods(List.of(
+	            "GET","POST","PUT","DELETE","OPTIONS"
+	        ));
+	        source.registerCorsConfiguration("/**", config);
+	        return new CorsFilter(source);
+	    }
+	}
