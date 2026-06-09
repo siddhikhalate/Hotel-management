@@ -74,16 +74,20 @@ public class WebSecurityConfig {
 	    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	        http.cors(cors -> cors.configurationSource(request -> {
 	                    CorsConfiguration config = new CorsConfiguration();
-	                    config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000")); // Add your frontend ports
+	                    config.setAllowedOriginPatterns(List.of(
+	                        "http://localhost:5173",
+	                        "http://localhost:3000",
+	                        "https://*.vercel.app"
+	                    ));
 	                    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 	                    config.setAllowedHeaders(List.of("*"));
+	                    config.setAllowCredentials(true);
 	                    return config;
 	                }))
 	                .csrf(AbstractHttpConfigurer::disable)
 	                .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint))
 	                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 	                .authorizeHttpRequests(auth -> auth
-	                        // This line ensures browsers can complete the preflight handshake
 	                        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
 	                        .requestMatchers("/", "/error", "/auth/**", "/rooms/**", "/bookings/**").permitAll()
 	                        .requestMatchers("/roles/**").hasRole("ADMIN")
@@ -93,7 +97,6 @@ public class WebSecurityConfig {
 	        http.addFilterBefore(authenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	        return http.build();
 	    }
-
 	    
 
 }
